@@ -1,0 +1,45 @@
+.card {
+  height: 200px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.images_card {
+  /* position: absolute; */
+  height: 200px;
+  width: 300px;
+  border-radius: 10px;
+  object-fit: fill;
+  /* width: 300px; */
+  border-radius: 5px;
+}
+.images_card_overlay {
+  height: 200px;
+  width: 300px;
+  /* background-color: blue; */
+  background-blend-mode: overlay;
+  position: absolute;
+
+  /* background-color: blue; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  opacity: 0;
+  /* margin-bottom: 300px; */
+}
+.card:hover {
+  background-blend-mode: overlay;
+  position: absolute;
+  opacity: 1;
+  transform: scale(1.32);
+}
+.card_title {
+  margin-top: 60px;
+}
+
+/* .container::-webkit-scrollbar {
+  /* display: none; */
+/* }  */
+.popular_h1 {
+  color: white;
+  padding-left: 20px;
+}
