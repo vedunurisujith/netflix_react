@@ -1,36 +1,50 @@
 .card {
   height: 200px;
   width: 300px;
-  padding: 20px;
   border-radius: 10px;
+  position: relative;
 }
 .images_card {
   /* position: absolute; */
   height: 200px;
-  width: 300px;
+  width: auto;
   border-radius: 10px;
   object-fit: fill;
+  position: absolute;
   /* width: 300px; */
+
   border-radius: 5px;
 }
 .images_card_overlay {
   height: 200px;
-  width: 300px;
-  /* background-color: blue; */
-  background-blend-mode: overlay;
-  position: absolute;
+  width: auto;
+  /* background-blend-mode: overlay; */
 
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  padding-left: 25px;
+  padding-right: 25px;
   /* background-color: blue; */
   /* display: flex; */
   /* flex-direction: column; */
+  align-content: center;
   opacity: 0;
+  color: white;
+  font-size: 10px;
   /* margin-bottom: 300px; */
 }
-.card:hover {
-  background-blend-mode: overlay;
-  position: absolute;
+.card:hover .images_card_overlay {
+  /* background-blend-mode: overlay; */
+  position: relative;
   opacity: 1;
+
   transform: scale(1.32);
+}
+
+.images_card:hover {
+  transform: scale(1.32, 1.32);
+  border-radius: 30px;
 }
 .card_title {
   margin-top: 60px;

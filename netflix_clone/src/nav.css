@@ -8,6 +8,20 @@ height: 20px;
 transition-timing-function: ease-in;
 transition: all 0.5s;
 }
+
+.nav_list{
+  position: fixed;
+  display: flex;
+  margin-left: 10%;
+align-items: space-around;
+  color:white;
+}
+.nav_list_objects{
+ padding-right: 30px;
+ text-decoration: none;
+ color: white;
+
+}
 .nav_black{
 background-color: #111;
 }

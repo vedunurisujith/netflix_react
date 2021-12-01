@@ -6,6 +6,8 @@ import RowSlider from "./RowSlider";
 const rand = Math.floor(Math.random() * 10);
 function Slider() {
   const [movie, setMovie] = useState([]);
+  const [trending, setTrending] = useState([]);
+  const [comedy, setComedy] = useState([]);
   const [horroMovies, setHorrorMovie] = useState([]);
   const [romanceMovies, setRomanceMovie] = useState([]);
   const [back_img, setBackImg] = useState("");
@@ -30,30 +32,38 @@ function Slider() {
           setBanName(data.results[rand].name);
           setBanDes(data.results[rand].overview);
         },
+        fetch(requests.fetchTrending)
+          .then((res) => res.json())
+          .then((data) => {
+            setTrending(data.results);
+          }),
         fetch(requests.fetchHorrorMovies)
           .then((res) => res.json())
           .then(
             (data) => {
               setHorrorMovie(data.results);
             },
-            fetch(requests.fetchRomanceMovies)
+            fetch(requests.fetchComedyMovies)
               .then((res) => res.json())
-              .then((data) => {
-                console.log(data.results, "hello");
-                setRomanceMovie(data.results);
-              })
+              .then(
+                (data) => {
+                  setComedy(data.results);
+                },
+                fetch(requests.fetchRomanceMovies)
+                  .then((res) => res.json())
+                  .then((data) => {
+                    console.log(data.results, "hello");
+                    setRomanceMovie(data.results);
+                  })
+              )
           )
       );
   }, []);
 
   return (
     <div>
-      <div
-        className="banner_header"
-        style={{
-          backgroundImage: `url(${back_img})`,
-        }}
-      >
+      <div className="img">
+        <img className="img1" src={back_img} alt="" />
         <div className="banner__contents">
           <h1 className="banner__name">{ban_name != "" && ban_name}</h1>
           <div className="banner__buttons">
@@ -72,9 +82,12 @@ function Slider() {
           </div>
         </div>
       </div>
-      <RowSlider movie={movie} name="Trending Movies" />
-      <RowSlider movie={horroMovies} name="Horror Movies" />
-      <RowSlider movie={romanceMovies} name="Romance Movies" />
+      <div className="rows">
+        <RowSlider movie={trending} name="Trending Movies" />
+        <RowSlider movie={horroMovies} name="Horror Movies" />
+        <RowSlider movie={romanceMovies} name="Romance Movies" />
+        <RowSlider movie={comedy} name="Comedy Movies" />
+      </div>
     </div>
   );
 }

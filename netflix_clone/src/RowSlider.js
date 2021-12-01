@@ -6,13 +6,16 @@ function RowSlider(props) {
     return (
       <div className="card">
         <div className="images_card_overlay">
-          <div className="card_title">{mov.name}</div>
+          <div className="card_title">
+            {mov.name}
+            {mov.title}
+          </div>
           <div>{mov.overview} </div>
         </div>
 
         <img
           className="images_card"
-          src={"https://image.tmdb.org/t/p/original" + mov.backdrop_path}
+          src={"https://image.tmdb.org/t/p/original" + mov.poster_path}
           alt=""
         />
       </div>
@@ -20,11 +23,11 @@ function RowSlider(props) {
   }
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
-    { width: 400, itemsToShow: 1 },
-    { width: 600, itemsToShow: 2 },
-    { width: 900, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 4 },
-    { width: 1400, itemsToShow: 5 },
+    { width: 400, itemsToShow: 3 },
+    { width: 600, itemsToShow: 5 },
+    { width: 900, itemsToShow: 6 },
+    { width: 1200, itemsToShow: 7 },
+    { width: 1400, itemsToShow: 10 },
   ];
   const movie = props.movie;
   return (
