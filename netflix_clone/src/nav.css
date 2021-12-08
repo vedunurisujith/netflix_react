@@ -1,48 +1,48 @@
-.nav{
+.nav {
   position: fixed;
   top: 0;
   width: 100%;
   padding: 20px;
   z-index: 1;
-height: 20px;
-transition-timing-function: ease-in;
-transition: all 0.5s;
+  height: 20px;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
 }
 
-.nav_list{
+.nav_list {
   position: fixed;
   display: flex;
   margin-left: 10%;
-align-items: space-around;
-  color:white;
+  align-items: space-around;
+  color: white;
 }
-.nav_list_objects{
- padding-right: 30px;
- text-decoration: none;
- color: white;
-
+.nav_list_objects {
+  padding-left: 10px;
+  padding-right: 30px;
+  text-decoration: none;
+  color: white;
 }
-.nav_black{
-background-color: #111;
+.nav_black {
+  background-color: #111;
 }
-.nav_logo{
-position: fixed;
-top: 5px;
-left: 0;
-width: 80px;
-object-fit: contain;
-padding-left: 20px;
-cursor: pointer;
+.nav_logo {
+  position: fixed;
+  top: 5px;
+  left: 0;
+  width: 80px;
+  object-fit: contain;
+  padding-left: 20px;
+  cursor: pointer;
 }
-.nav_avator{
+.nav_avator {
   top: 10px;
   cursor: pointer;
   width: 30px;
   right: 20px;
-  position:fixed;
+  position: fixed;
 }
 
-.nav_contents{
+.nav_contents {
   display: flex;
   justify-content: space-between;
 }

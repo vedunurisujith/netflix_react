@@ -4,15 +4,18 @@ import { BsPlayFill } from "react-icons/bs";
 import requests from "./Requests";
 import RowSlider from "./RowSlider";
 const rand = Math.floor(Math.random() * 10);
+
 function Slider() {
   const [movie, setMovie] = useState([]);
   const [trending, setTrending] = useState([]);
   const [comedy, setComedy] = useState([]);
+  const [docu, setDocu] = useState([]);
   const [horroMovies, setHorrorMovie] = useState([]);
   const [romanceMovies, setRomanceMovie] = useState([]);
   const [back_img, setBackImg] = useState("");
   const [ban_name, setBanName] = useState("");
   const [ban_dec, setBanDes] = useState("");
+  const [watchlist, setToWatchlist] = useState([]);
 
   // console.log(rand);
   // console.log(back_img);
@@ -43,22 +46,41 @@ function Slider() {
             (data) => {
               setHorrorMovie(data.results);
             },
-            fetch(requests.fetchComedyMovies)
+            fetch(requests.fetchDocumentaries)
               .then((res) => res.json())
               .then(
                 (data) => {
-                  setComedy(data.results);
+                  setDocu(data.results);
                 },
-                fetch(requests.fetchRomanceMovies)
+                fetch(requests.fetchComedyMovies)
                   .then((res) => res.json())
-                  .then((data) => {
-                    console.log(data.results, "hello");
-                    setRomanceMovie(data.results);
-                  })
+                  .then(
+                    (data) => {
+                      setComedy(data.results);
+                    },
+                    fetch(requests.fetchRomanceMovies)
+                      .then((res) => res.json())
+                      .then((data) => {
+                        setRomanceMovie(data.results);
+                      })
+                  )
               )
           )
       );
   }, []);
+
+  const fun = () => {
+    return (
+      <RowSlider
+        movie={watchlist}
+        name="Watchlist"
+        iswatchlist={true}
+        addToWatchlist={setToWatchlist}
+      ></RowSlider>
+    );
+  };
+  // console.log(watchlist.length, "hello");
+  const wat = watchlist.length > 0 ? fun() : <div></div>;
 
   return (
     <div>
@@ -83,10 +105,42 @@ function Slider() {
         </div>
       </div>
       <div className="rows">
-        <RowSlider movie={trending} name="Trending Movies" />
-        <RowSlider movie={horroMovies} name="Horror Movies" />
-        <RowSlider movie={romanceMovies} name="Romance Movies" />
-        <RowSlider movie={comedy} name="Comedy Movies" />
+        {wat}
+        <RowSlider
+          movie={trending}
+          name="Trending Movies"
+          watchlist={watchlist}
+          addToWatchlist={setToWatchlist}
+          iswatchlist={false}
+        />
+        <RowSlider
+          movie={horroMovies}
+          name="Horror Movies"
+          watchlist={watchlist}
+          addToWatchlist={setToWatchlist}
+          iswatchlist={false}
+        />
+        <RowSlider
+          movie={romanceMovies}
+          name="Romance Movies"
+          watchlist={watchlist}
+          addToWatchlist={setToWatchlist}
+          iswatchlist={false}
+        />
+        <RowSlider
+          movie={comedy}
+          name="Comedy Movies"
+          watchlist={watchlist}
+          addToWatchlist={setToWatchlist}
+          iswatchlist={false}
+        />
+        <RowSlider
+          movie={docu}
+          name=" Documentary Movies"
+          watchlist={watchlist}
+          addToWatchlist={setToWatchlist}
+          iswatchlist={false}
+        />
       </div>
     </div>
   );
