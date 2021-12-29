@@ -1,0 +1,6 @@
+.outside_div{
+    background-color: black;
+    height: 100%;
+    z-index: 1;
+    width: 100%;
+}

@@ -1,0 +1,48 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 25px;
+  z-index: 1;
+  height: 25px;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
+.nav_list {
+  /* position: fixed; */
+  display: flex;
+  margin-left: 5%;
+  margin-right: 10%;
+  /* align-items: space-around; */
+  color: white;
+}
+.nav_list_objects {
+  padding-left: 10px;
+  padding-right: 30px;
+  text-decoration: none;
+  color: white;
+}
+.nav_black {
+  background-color: #111;
+}
+.nav_logo {
+  position: fixed;
+  left: 0;
+  width: 80px;
+  object-fit: contain;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.nav_avator {
+  top: 10px;
+  cursor: pointer;
+  width: 30px;
+  right: 20px;
+  position: fixed;
+}
+
+.nav_contents {
+  display: flex;
+  justify-content: space-between;
+}
