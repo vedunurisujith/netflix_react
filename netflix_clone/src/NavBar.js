@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from "react";
 import "./nav.css";
+
 import { Link } from "react-router-dom";
 function NavBar() {
   const [show, showHandler] = useState(false);
   const downSlide = () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY >=80) {
       showHandler(true);
     } else {
       showHandler(false);
     }
   };
-  useEffect(() => {
-    window.addEventListener("scroll", showHandler);
-    return () => {
-      window.removeEventListener("scroll", showHandler);
-    };
-  }, []);
+  window.addEventListener('scroll',downSlide)
+  // useEffect(() => {
+  //   window.addEventListener("scroll", showHandler);
+  //   return () => {
+  //     window.removeEventListener("scroll", showHandler);
+  //   };
+  // }, []);
   return (
-    <div className={`nav ${show && "nav_black"}`}>
-      <div className="nav_contents">
+
+     <div className={`nav ${show && "nav_black"}`}>
+     <div className="nav_contents">
         <Link to="/"><img
           className="nav_logo"
           src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
@@ -36,8 +39,8 @@ function NavBar() {
           src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
           alt=""
         ></img>
-      </div>
-    </div>
+      </div> 
+     </div>
   );
 }
 

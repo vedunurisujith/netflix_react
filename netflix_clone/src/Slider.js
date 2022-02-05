@@ -13,6 +13,7 @@ function Slider() {
   const [horroMovies, setHorrorMovie] = useState([]);
   const [romanceMovies, setRomanceMovie] = useState([]);
   const [back_img, setBackImg] = useState("");
+  const [back_img1, setBackImg1] = useState("");
   const [ban_name, setBanName] = useState("");
   const [ban_dec, setBanDes] = useState("");
   const [watchlist, setToWatchlist] = useState([]);
@@ -31,6 +32,10 @@ function Slider() {
           setBackImg(
             "https://image.tmdb.org/t/p/original" +
               data.results[rand].backdrop_path
+          );
+          setBackImg1(
+            "https://image.tmdb.org/t/p/original" +
+              data.results[rand].poster_path
           );
           setBanName(data.results[rand].name);
           setBanDes(data.results[rand].overview);
@@ -83,9 +88,10 @@ function Slider() {
   const wat = watchlist.length > 0 ? fun() : <div></div>;
 
   return (
-    <div>
+    <div className="home_box">
       <div className="img">
-        <img className="img1" src={back_img} alt="" />
+      <img className="img1" src={back_img} alt="" />
+        {/* <img className="img2" src={back_img1} alt="" /> */}
         <div className="banner__contents">
           <h1 className="banner__name">{ban_name !== "" && ban_name}</h1>
           <div className="banner__buttons">
@@ -134,13 +140,13 @@ function Slider() {
           addToWatchlist={setToWatchlist}
           iswatchlist={false}
         />
-        <RowSlider
+        {/* <RowSlider
           movie={docu}
           name=" Documentary Movies"
           watchlist={watchlist}
           addToWatchlist={setToWatchlist}
           iswatchlist={false}
-        />
+        /> */}
       </div>
     </div>
   );

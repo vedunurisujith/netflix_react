@@ -9,6 +9,13 @@
   transition: all 0.5s;
 }
 
+@media only screen and (max-width:780px) {
+
+  
+  .nav_list_objects{
+    display: none;
+  }
+}
 .nav_list {
   /* position: fixed; */
   display: flex;
@@ -30,12 +37,13 @@
   position: fixed;
   left: 0;
   width: 80px;
+  top: 20;
   object-fit: contain;
   padding-left: 20px;
   cursor: pointer;
 }
 .nav_avator {
-  top: 10px;
+  top: 25px;
   cursor: pointer;
   width: 30px;
   right: 20px;
